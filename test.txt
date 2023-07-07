@@ -1,0 +1,11 @@
+port = serial.Serial('COM4' ,9600)
+data = input("Enter 1 to ""ON"" the led and 0 to ""OFF"" the led: q for quit ")
+
+while data != 'q':
+
+    #if (data == 1):
+    byte_command=encode(data)
+    port.writelines(byte_command)
+    time.sleep(0.5)
+print('q for quit!')
+port.close()
